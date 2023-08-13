@@ -36,3 +36,11 @@ def login():
             login_user(user)
             return redirect(url_for('profile'))
     return render_template('login.html')
+
+#Route for user profile page and mock profile function:
+from flask_login import current_user
+
+@app.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html', username=current_user.id)
