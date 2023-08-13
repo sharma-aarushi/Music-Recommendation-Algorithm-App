@@ -44,3 +44,10 @@ from flask_login import current_user
 @login_required
 def profile():
     return render_template('profile.html', username=current_user.id)
+
+# Set the absolute path of the 'templates' folder
+template_dir = os.path.abspath('templates')
+app.template_folder = template_dir
+from flask import Flask, render_template
+
+app = Flask(__name__)
